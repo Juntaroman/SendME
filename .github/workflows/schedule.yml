@@ -1,1 +1,22 @@
+# ワークフローの名前
+name: Weekly Schedule Workflow
 
+# 1. トリガー条件（毎週月曜日の朝9時）
+on:
+  schedule:
+    # UTC（協定世界時）で指定するため、日本時間の朝9時は UTCの00:00 になります
+    - cron: '0 0 * * 1'
+  
+  # 手動でもテスト実行できるように追加しておくと便利です
+  workflow_dispatch:
+
+# 2. 実行する処理
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Run Monday task
+        run: echo "毎週月曜日の定期チェックを開始します"
