@@ -6,7 +6,7 @@ import requests
 
 # --- 設定情報 ---
 GMAIL_USER = "oshiro0307@gmail.com"        # 送信元（ご自身のGmailアドレス）
-GMAIL_APP_PASS = "xxxx xxxx xxxx xxxx"     # Gmailのアプリパスワード
+GMAIL_APP_PASS = "nlnf wijf fhfs tcsp"     # Gmailのアプリパスワード
 TO_EMAIL = "oshiro0307@gmail.com"          # 送信先メールアドレス
 
 SERPAPI_KEY = "YOUR_SERPAPI_KEY"           # SerpAPIのAPIキー
