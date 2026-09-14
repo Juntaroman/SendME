@@ -4,13 +4,12 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import requests
 
-# --- 設定情報 ---
-GMAIL_USER = "oshiro0307@gmail.com"        # 送信元（ご自身のGmailアドレス）
-GMAIL_APP_PASS = "xxxx xxxx xxxx xxxx"     # Gmailのアプリパスワード
-TO_EMAIL = "oshiro0307@gmail.com"          # 送信先メールアドレス
-
-SERPAPI_KEY = "YOUR_SERPAPI_KEY"           # SerpAPIのAPIキー
-DB_FILE = "notified_urls.txt"              # 通知済みURLの保存ファイル
+# --- 設定情報（GitHub Secrets等から環境変数を取得）---
+GMAIL_USER = os.environ.get("GMAIL_USER", "oshiro0307@gmail.com")
+GMAIL_APP_PASS = os.environ.get("GMAIL_APP_PASS")
+TO_EMAIL = os.environ.get("TO_EMAIL", "oshiro0307@gmail.com")
+SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
+DB_FILE = "notified_urls.txt"
 
 # --- 1. 過去に通知したURLの読み込み ---
 def load_notified_urls():
@@ -93,4 +92,4 @@ def main():
         print("新しい勉強会情報はありませんでした。")
 
 if __name__ == "__main__":
-    main():
+    main()
